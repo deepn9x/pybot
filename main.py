@@ -59,7 +59,7 @@ async def process_callback_button1(callback_query: types.CallbackQuery):
     if db.getLang(callback_query.from_user.id) == "Қазақша":
         await bot.send_message(callback_query.from_user.id, "Аты-жөніңізді енгізіңіз")
     elif db.getLang(callback_query.from_user.id) == "Русский":
-         await bot.send_message(callback_query.from_user.id, "Укажите Ваши ФИО")
+         await bot.send_message(callback_query.from_user.id, "Укажите Ваше ФИО")
     
 @dp.message_handler()
 async def response_message(msg: types.Message):
@@ -208,7 +208,7 @@ async def response_message(msg: types.Message):
                     if not db.getLastQuest(msg.from_user.id):
                         if not msg.text.isnumeric():
                             db.setQuestion(msg.from_user.id, msg.text)
-                        await bot.send_message(msg.from_user.id, "Ваш вопрос принят. Чтобы отправить еще вопросы нажмите /start", parse_mode=types.ParseMode.HTML)
+                        await bot.send_message(msg.from_user.id, "Спасибо, Ваш вопрос принят. Чтобы отправить еще вопросы нажмите /start", parse_mode=types.ParseMode.HTML)
                     else:
                         await bot.send_message(msg.from_user.id, "Чтобы отправить еще вопросы нажмите /start", parse_mode=types.ParseMode.HTML)
 
